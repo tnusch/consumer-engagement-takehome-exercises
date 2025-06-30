@@ -2,7 +2,7 @@
 #### Exercise: Predict Optimal Send Time for a Marketing Campaign using a Python notebook
 
 #### 1. Analyze the Dataset  
-Use the provided dataset containing **email open and click events** per user. The data includes:
+Use the provided [dataset](email_events_1000.csv) containing **email open and click events** per user. The data includes:
 - Timestamps of sends, opens, and clicks  
 - User IDs 
 
