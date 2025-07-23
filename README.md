@@ -17,7 +17,9 @@ Choose the exercise that corresponds to the role you're applying for:
 
 
 ### 2. Senior Engineer – Identity & Consent  
-t.b.d 
+#### Exercise: Authentication Flow Analysis & Design
+[Identity & Consent Exercise](exercise-identity/README.md)
+
 
 ### 3. Senior Engineer – Marketing Integrations & APIs  
 #### Exercise: Develop an API that syncs user profile data to a mock third-party marketing platform with basic validation and transformation logic.
