@@ -3,8 +3,8 @@
 
 #### 1. Use Case Exploration  
 Task:
-- Visit Website https://t1-electrolux-uat-a.eluxmkt.com/en-gb/
-- Navigate through the Login and Registration flows.
+- Visit Website http://zanussi.be/nl-be/
+- Navigate through the Login and Registration flows. Please don't create too many new registrations.
 
 Deliverables:
 - Describe the steps involved in both flows.
@@ -15,6 +15,7 @@ Deliverables:
 Task:
 - Investigate and determine the authentication protocol used (e.g., OAuth 2.0, OpenID Connect, SAML, custom JWT-based auth).
 - Consider whether any additional protocols could be used to improve the user experience.
+
 Deliverables:
 - Provide a brief explanation of the identified protocol.
 - Suggest alternative or complementary protocols that could enhance UX.
@@ -22,6 +23,7 @@ Deliverables:
 
 #### 3. Pseudocode & UI Flow Design  
 Task: Design a simplified version of the login and registration flow.
+
 Deliverables:
 - Screens Overview
   - Identify exactly which CDC (Customer Data Cloud) screens are used to design the flow.
