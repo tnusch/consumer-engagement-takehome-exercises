@@ -2,6 +2,7 @@
 #### Exercise: Develop an API that syncs user profile data to a mock third-party marketing platform with basic validation and transformation logic.
 
 #### 1. Build a Minimal Profile Sync API
+
 Create a small service that exposes a POST endpoint accepting a batch of user profiles (JSON array).
 Each profile must contain:
 - Email address  
@@ -14,7 +15,9 @@ Requirements:
 - Log the final payload as a stand-in for a third-party marketing API call
 
 #### 2. Error handling & retry strategy (conceptual & light implementation)
+
 A. Retry Strategy (Conceptual)
+
 Define a practical retry strategy for when the third-party platform fails.
 You do not need to implement retries in code - instead:
 - Describe when to retry, when not to retry, and why
@@ -23,10 +26,12 @@ You do not need to implement retries in code - instead:
 - Explain how retries would interact with batch processing
 
 B. Error Classification & Handling (Light Implementation + Reasoning)
+
 Implement a simple mechanism to classify errors into:
 - Client errors (invalid input)
 - Server errors (temporary failure, retryable)
 - Unexpected faults
+
 And provide a short explanation of how your classification supports observability, debugging, and reliability.
 
 #### 3. Telemetry & Quality Signals (Design Only)
@@ -38,13 +43,17 @@ Instead of implementing full logging/metrics/tracing, provide a brief plan (max 
 
 #### 4. Document Your Work
 Provide a concise, readable explanation for two audiences:
+
 **Technical Audience**
+
 Explain:
 - Your API structure
 - How you handle validation & transformation
 - Your retry and error-handling reasoning
 - Your telemetry plan
+- 
 **Non-Technical Audience**
+  
 Explain (3–5 sentences):
 - What this service does
 - Why validating and transforming user data matters
