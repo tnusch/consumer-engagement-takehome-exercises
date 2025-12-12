@@ -1,47 +1,50 @@
 ### 3. Senior Engineer – Marketing Integrations & APIs  
-#### Exercise: Develop an API that syncs user profile data to a mock third-party marketing platform with basic validation and transformation logic.
+**Exercise: Build a small service that accepts user profile submissions, performs basic validation, and forwards them synchronously to a downstream system that is rate-limited. The focus is on API design, batching strategy, and handling throughput pressure without external queue technologies.**
 
-#### 1. Build a Minimal Profile Sync API
+#### 1. Profile Submission API
 
-Create a small service that exposes a POST endpoint accepting a batch of user profiles (JSON array).
-Each profile must contain:
-- Email address  
-- First name and last name  
-- Optional metadata (e.g., tags, preferences)
+Expose a POST endpoint accepting a JSON object containing:
+- email
+- firstName
+- lastName
+Optional metadata (e.g., tags, preferences, or other free-form fields)
 
 Requirements:
-- Validate email format
-- Normalize names (capitalize properly)
-- Log the final payload as a stand-in for a third-party marketing API call
+
+- Validate the submitted data. (Validation rules are intentionally ambiguous—use your judgment and document your reasoning.)
+- Return 400 for invalid submissions.
+- Log the final payload (simulating a call to an upstream marketing platform).
+
+#### 1b. Downstream Submission Logic
+For each incoming profile, the service must forward the data to a downstream API synchronously. The downstream API has the following constraints:
+- At most 5 requests per second
+- Profiles may be batched together in a single request (feel free to decide a convenient payload format)
+
+Additional Requirements:
+
+- Incoming submissions may arrive at ~500 requests per second
+- You may NOT use any external queueing technology (e.g., no Redis/Kafka/Pub/Sub/SQS)
+- You may use in-memory data structures to implement batching or rate limiting
+- The client calling your POST endpoint must wait for the downstream submission to complete before receiving a response
+  
+Response Behavior:
+
+Your endpoint should return a JSON response indicating whether the profile:
+- was successfully forwarded to the downstream service, or
+- could not be forwarded (include an error message)
 
 #### 2. Error handling & retry strategy (conceptual & light implementation)
 
 A. Retry Strategy (Conceptual)
 
 Define a practical retry strategy for when the third-party platform fails.
-You do not need to implement retries in code - instead:
-- Describe when to retry, when not to retry, and why
-- Define backoff behavior
-- Identify risks of retry storms and how you'd prevent them
-- Explain how retries would interact with batch processing
 
 B. Error Classification & Handling (Light Implementation + Reasoning)
 
-Implement a simple mechanism to classify errors into:
-- Client errors (invalid input)
-- Server errors (temporary failure, retryable)
-- Unexpected faults
+Implement a simple mechanism to classify errors.
+Provide a short explanation of how your classification supports observability, debugging, and reliability.
 
-And provide a short explanation of how your classification supports observability, debugging, and reliability.
-
-#### 3. Telemetry & Quality Signals (Design Only)
-Instead of implementing full logging/metrics/tracing, provide a brief plan (max 10 bullet points) describing:
-- Which logs would be emitted at each stage
-- Which metrics you would track (e.g., invalid email ratio, batch size, integration failures)
-- One example of what you would trace and why
-- How the above signals help detect issues before they impact downstream users
-
-#### 4. Document Your Work
+#### 3. Document Your Work
 Provide a concise, readable explanation for two audiences:
 
 **Technical Audience**
@@ -51,7 +54,7 @@ Explain:
 - How you handle validation & transformation
 - Your retry and error-handling reasoning
 - Your telemetry plan
-- 
+
 **Non-Technical Audience**
   
 Explain (3–5 sentences):
