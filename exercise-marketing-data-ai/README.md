@@ -22,7 +22,7 @@ The script should output a list of users (or segments) with their recommended se
 
 #### 3. Suggest Ecosystem Integration  
 Explain how your output could be integrated into the Electrolux marketing and activation ecosystem.  
-- Identify **relevant platforms** from the job posting
+- Identify **relevant platforms** from the job posting or [related job postings](https://career.electroluxgroup.com/global/en/job/JR70763)
 - Suggest how the predictions could be exported, activated, or used in real-time orchestration  
 - Consider data flows or API usage if relevant
 
